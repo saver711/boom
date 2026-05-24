@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"
+    />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <title>Boom Boom Game</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="landscape-warning" class="landscape-warning">
+      <p>Please rotate your phone to portrait mode!</p>
+    </div>
+
+    <div id="app">
+      <div id="player1-zone" class="player-zone zone-p1">
+        <header class="player-header">
+          <input
+            type="text"
+            id="p1-name"
+            class="name-input"
+            maxlength="16"
+            placeholder="Player 1"
+            aria-label="Player 1 name"
+          />
+          <span class="stats" id="p1-stats">W: 0 L: 0</span>
+        </header>
+        <div
+          id="board-p1"
+          class="board"
+          role="grid"
+          aria-label="Player 1 board"
+        ></div>
+      </div>
+
+      <div id="center-bar" class="center-bar">
+        <button
+          type="button"
+          id="btn-settings"
+          class="bar-btn"
+          aria-label="Settings"
+        >
+          ⚙
+        </button>
+        <p id="turn-text" class="turn-text">Enter names &amp; tap Start</p>
+        <button type="button" id="btn-reset" class="bar-btn" aria-label="Reset">
+          ↺
+        </button>
+      </div>
+
+      <div id="player2-zone" class="player-zone zone-p2">
+        <header class="player-header">
+          <input
+            type="text"
+            id="p2-name"
+            class="name-input"
+            maxlength="16"
+            placeholder="Player 2"
+            aria-label="Player 2 name"
+          />
+          <span class="stats" id="p2-stats">W: 0 L: 0</span>
+        </header>
+        <div
+          id="board-p2"
+          class="board"
+          role="grid"
+          aria-label="Player 2 board"
+        ></div>
+      </div>
+    </div>
+
+    <div id="settings-modal" class="modal" hidden>
+      <div class="modal-backdrop" data-close="settings"></div>
+      <div class="modal-sheet">
+        <h2>Cover Shape</h2>
+        <p class="modal-hint">Pick what hides under the tiles</p>
+        <div class="shape-picker" role="group" aria-label="Cover shape">
+          <button type="button" class="shape-btn" data-shape="chip">
+            🥔 Chip
+          </button>
+          <button type="button" class="shape-btn" data-shape="candy">
+            🍬 Candy
+          </button>
+          <button type="button" class="shape-btn" data-shape="cookie">
+            🍪 Cookie
+          </button>
+          <button type="button" class="shape-btn" data-shape="donut">
+            🍩 Donut
+          </button>
+        </div>
+        <div class="custom-cover">
+          <label for="custom-cover-input" class="custom-cover-label"
+            >Or type your own emoji</label
+          >
+          <div class="custom-cover-row">
+            <input
+              type="text"
+              id="custom-cover-input"
+              class="custom-cover-input"
+              maxlength="8"
+              placeholder="🦄"
+              aria-label="Custom cover emoji"
+            />
+            <span
+              id="custom-cover-preview"
+              class="custom-cover-preview"
+              aria-hidden="true"
+            ></span>
+          </div>
+        </div>
+        <button type="button" id="btn-close-settings" class="modal-close-btn">
+          Done
+        </button>
+      </div>
+    </div>
+
+    <div id="gameover-overlay" class="overlay" hidden>
+      <div class="overlay-content">
+        <p id="gameover-message" class="gameover-message"></p>
+        <button type="button" id="btn-play-again" class="play-again-btn">
+          Play Again
+        </button>
+      </div>
+      <div id="confetti" class="confetti" aria-hidden="true"></div>
+    </div>
+
+    <button type="button" id="btn-start" class="start-btn">Start Game</button>
+
+    <script src="script.js" defer></script>
+  </body>
+</html>
